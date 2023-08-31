@@ -16,24 +16,26 @@ public class LoginPage {
     }
     // Locator @FindBy
     @FindBy(xpath = "//input[@id='username']")
-    WebElement username;
+    WebElement usernameField;
     @FindBy(xpath = "//input[@id='password']")
-    WebElement password;
+    WebElement passwordField;
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnLogin;
     @FindBy(xpath = "//b[normalize-space()='DIKA | DOKUMEN']")
     WebElement txtLoginPage;
     @FindBy(xpath = "//h1[normalize-space()='404 Page Not Found']")
     WebElement txt404NotFound;
+    @FindBy(xpath = "//span[@class='logo-lg']//b[contains(text(),'DMS')]")
+    WebElement txtLogoDMSDashboard;
+
     // Custom Method
-    public void login(String username, String password){
-        try {
-            this.username.clear();
-            this.password.clear();
-        }catch (Exception ignored){
-        }
-        this.username.sendKeys(username);
-        this.password.sendKeys(password);
+    public void inputUsername(String username){
+        usernameField.sendKeys(username);
+    }
+    public void inputPassword(String password){
+        passwordField.sendKeys(password);
+    }
+    public void clickButtonLogin(){
         btnLogin.click();
     }
     public String getTextLoginPage(){
@@ -41,5 +43,8 @@ public class LoginPage {
     }
     public String getErrorText404NotFound(){
         return txt404NotFound.getText();
+    }
+    public String getTextLogoDMSDashboard(){
+        return txtLogoDMSDashboard.getText();
     }
 }

@@ -1,5 +1,6 @@
 package com.juaracoding;
 
+import com.juaracoding.drivers.DriverSingleton;
 import com.juaracoding.pages.LoginPage;
 import com.juaracoding.utils.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -38,12 +39,35 @@ public class TestLogin {
     public void user_enter_invalid_url_dms() {
         driver.get(Constants.URLINVALID);
         extentTest.log(LogStatus.PASS, "User Enter Invalid Url DMS");
+        DriverSingleton.delay(3);
     }
 
     @Then("User Get Text 404 Not Found")
     public void user_get_text_404_not_found() {
         Assert.assertEquals(loginPage.getErrorText404NotFound(),"404 Page Not Found");
         extentTest.log(LogStatus.PASS, "User Get Text 404 Not Found");
+    }
+
+    @When("User Input Valid Username")
+    public void user_input_valid_username(){
+        loginPage.inputUsername("sqamagang1");
+        extentTest.log(LogStatus.PASS, "User Input Valid Username");
+    }
+
+    @And("User Input Valid Password")
+    public void user_input_valid_password(){
+        loginPage.inputPassword("a");
+        extentTest.log(LogStatus.PASS, "User Input Valid Password");
+    }
+    @And("User Click Button Login")
+    public void user_click_button_login(){
+        loginPage.clickButtonLogin();
+        extentTest.log(LogStatus.PASS, "User Click Button Login");
+    }
+    @Then("User Get Text Logo DMS In Dashboard")
+    public void user_get_text_logo_dms_in_dashboard(){
+        Assert.assertEquals(loginPage.getTextLogoDMSDashboard(),"DMS");
+        extentTest.log(LogStatus.PASS, "User Get Text Logo DMS In Dashboard");
     }
     
 }
