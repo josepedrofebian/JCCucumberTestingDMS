@@ -27,6 +27,8 @@ public class LoginPage {
     WebElement txt404NotFound;
     @FindBy(xpath = "//span[@class='logo-lg']//b[contains(text(),'DMS')]")
     WebElement txtLogoDMSDashboard;
+    @FindBy(xpath = "//span[normalize-space()='Logout']")
+    WebElement btnLogout;
 
     // Custom Method
     public void inputUsername(String username){
@@ -37,6 +39,9 @@ public class LoginPage {
     }
     public void clickButtonLogin(){
         btnLogin.click();
+    }
+    public void clickButtonLogout(){
+        btnLogout.click();
     }
     public String getTextLoginPage(){
         return txtLoginPage.getText();
