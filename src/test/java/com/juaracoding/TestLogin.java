@@ -69,5 +69,10 @@ public class TestLogin {
         Assert.assertEquals(loginPage.getTextLogoDMSDashboard(),"DMS");
         extentTest.log(LogStatus.PASS, "User Get Text Logo DMS In Dashboard");
     }
+    @When("User Click Button Logout")
+    public void user_click_button_logout(){
+        loginPage.clickButtonLogout();
+        extentTest.log(LogStatus.PASS, "User Click Button Logout");
+    }
     
 }

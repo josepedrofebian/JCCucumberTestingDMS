@@ -15,6 +15,9 @@ Feature: Login Page Test
     And User Click Button Login
     Then User Get Text Logo DMS In Dashboard
 
+  Scenario: User Logout
+    When User Click Button Logout
+    Then User Get Text Title Login Page
 
 
 

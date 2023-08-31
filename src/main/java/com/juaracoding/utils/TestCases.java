@@ -3,7 +3,8 @@ package com.juaracoding.utils;
 public enum TestCases {
     T1("Login Page Displayed With URL Valid"),
     T2("Login Page No Displayed With URL Invalid"),
-    T3("User Input Valid Username And Password");
+    T3("User Input Valid Username And Password"),
+    T4("User Logout");
 
     private String testCaseName;
 
