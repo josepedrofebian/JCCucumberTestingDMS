@@ -50,7 +50,11 @@ public class TestLogin {
 
     @When("User Input Valid Username")
     public void user_input_valid_username(){
+
         loginPage.inputUsername(Constants.USERNAME);
+
+        loginPage.inputUsername("sqamagang2g");
+
         extentTest.log(LogStatus.PASS, "User Input Valid Username");
     }
 
