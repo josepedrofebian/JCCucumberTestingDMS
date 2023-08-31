@@ -50,13 +50,13 @@ public class TestLogin {
 
     @When("User Input Valid Username")
     public void user_input_valid_username(){
-        loginPage.inputUsername("sqamagang1");
+        loginPage.inputUsername(Constants.USERNAME);
         extentTest.log(LogStatus.PASS, "User Input Valid Username");
     }
 
     @And("User Input Valid Password")
     public void user_input_valid_password(){
-        loginPage.inputPassword("a");
+        loginPage.inputPassword(Constants.PASSWORD);
         extentTest.log(LogStatus.PASS, "User Input Valid Password");
     }
     @And("User Click Button Login")
