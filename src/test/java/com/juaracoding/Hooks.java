@@ -20,7 +20,7 @@ public class Hooks {
 
     @Before
     public void setUp(){
-        DriverSingleton.getInstance("chrome");
+        DriverSingleton.getInstance(Constants.BROWSER);
         driver = DriverSingleton.getDriver();
         TestCases[] test = TestCases.values();
         extentTest = reports.startTest(test[Utils.testCount].getTestCaseName());
