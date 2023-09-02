@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class LoginPage {
+public class LoginAndLogoutPage {
     private WebDriver driver; // atribut kelas LoginPage
 
-    public LoginPage(){
+    public LoginAndLogoutPage(){
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -27,8 +27,10 @@ public class LoginPage {
     WebElement txt404NotFound;
     @FindBy(xpath = "//span[@class='logo-lg']//b[contains(text(),'DMS')]")
     WebElement txtLogoDMSDashboard;
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissable']")
+    WebElement txtErrorMessage;
     @FindBy(xpath = "//span[normalize-space()='Logout']")
-    WebElement btnLogout;
+    WebElement sideBarMenuLogout;
 
     // Custom Method
     public void inputUsername(String username){
@@ -40,9 +42,6 @@ public class LoginPage {
     public void clickButtonLogin(){
         btnLogin.click();
     }
-    public void clickButtonLogout(){
-        btnLogout.click();
-    }
     public String getTextLoginPage(){
         return txtLoginPage.getText();
     }
@@ -51,5 +50,17 @@ public class LoginPage {
     }
     public String getTextLogoDMSDashboard(){
         return txtLogoDMSDashboard.getText();
+    }
+    public String getTextErrorMessage(){
+        return txtErrorMessage.getText();
+    }
+    public String getUsernameFieldRequired(){
+        return usernameField.getAttribute("required");
+    }
+    public String getPasswordFieldRequired(){
+        return passwordField.getAttribute("required");
+    }
+    public void clickSideBarLogout() {
+        sideBarMenuLogout.click();
     }
 }
