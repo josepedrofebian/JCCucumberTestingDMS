@@ -1,4 +1,10 @@
-target/
+## File yg gak boleh diapa-apain lagi!! ##
+/target/*
+/pom.xml
+/src/main/**/drivers/*
+/src/main/**/utils/Constants.java
+/src/test/**/Hooks.java
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
