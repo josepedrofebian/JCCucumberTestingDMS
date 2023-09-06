@@ -116,4 +116,16 @@ public class TestLogin {
         Assert.assertEquals(loginAndLogoutPage.getPasswordFieldRequired(),"true");
         extentTest.log(LogStatus.PASS, "User Get Warning From Field Password Required");
     }
+
+    @When("User Input Username Just Space")
+    public void user_input_username_just_space() {
+        loginAndLogoutPage.inputUsername("    ");
+        extentTest.log(LogStatus.PASS, "User Input Username Just Space");
+    }
+
+    @And("User Input Password Just Space")
+    public void user_input_password_just_space() {
+        loginAndLogoutPage.inputPassword("    ");
+        extentTest.log(LogStatus.PASS, "User Input Password Just Space");
+    }
 }
