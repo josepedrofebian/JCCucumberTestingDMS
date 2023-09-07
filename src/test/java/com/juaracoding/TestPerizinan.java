@@ -320,13 +320,15 @@ public class TestPerizinan {
     @Then("Menampilkan Alert Tanggal Akhir Tidak boleh Lebih Kecil")
     public void get_alert_tgl_akhir_tidak_kurang_dari_tgl_awal() {
         System.out.println("belum ada peringatannya");
-        extentTest.log(LogStatus.PASS, "Menampilkan Alert Tanggal Akhir Tidak boleh Lebih Kecil");
+        Assert.assertEquals(inputPerizinanPage.getAlertTglAkhir(), "Tanggal Akhir Tidak boleh Lebih Kecil Dari Tanggal Mulai");
+        extentTest.log(LogStatus.FAIL, "Menampilkan Alert Tanggal Akhir Tidak boleh Lebih Kecil");
     }
 
     @Then("Menampilkan Alert di Kolom Tanggal Reminder Tidak Boleh Lebih Kecil")
     public void get_alert_tgl_reminder_tidak_kurang_dari_tgl_awal() {
         System.out.println("belum ada peringatannya");
-        extentTest.log(LogStatus.PASS, "Menampilkan Alert di Kolom Tanggal Reminder Tidak Boleh Lebih Kecil");
+        Assert.assertEquals(inputPerizinanPage.getAlertTglReminder(), "Tanggal Reminder Tidak boleh Lebih Kecil/Besar Dari Tanggal Mulai/Berakhir");
+        extentTest.log(LogStatus.FAIL, "Menampilkan Alert di Kolom Tanggal Reminder Tidak Boleh Lebih Kecil");
     }
 
     @Then("User Berhasil Diupload File PDF")
@@ -344,7 +346,8 @@ public class TestPerizinan {
     @Then("Menampilkan Alert Data Tidak Boleh Kosong")
     public void get_alert_data_invalid() {
         System.out.println("belum ada peringatannya");
-        extentTest.log(LogStatus.PASS, "User Menampilkan Alert Data Tidak Boleh Kosong");
+        Assert.assertEquals(inputPerizinanPage.getAlertTidakBolehKosong(), "Mohon Masukkan Data yang Valid");
+        extentTest.log(LogStatus.FAIL, "User Menampilkan Alert Data Tidak Boleh Kosong");
     }
 
 }

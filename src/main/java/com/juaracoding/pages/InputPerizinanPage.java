@@ -51,6 +51,14 @@ public class InputPerizinanPage {
     WebElement txtBerhasilSave;
     @FindBy(xpath = "//button[@id='singlebutton']")
     WebElement btnSimpan;
+    //ini gk ada alertnya
+    @FindBy(xpath = "//input[@id='alert-masa']")
+    WebElement txtAlertTglAkhir;
+    @FindBy(xpath = "//input[@id='alert-tgl_reminder']']")
+    WebElement txtAlertTglReminder;
+    @FindBy(xpath = "//input[@id='alert']")
+    WebElement txtAlertTidakBolehKosong;
+
 
     String noPerizinan = "Nomor Perizinan";
     String namaPerizinan = "Perizinan ABC";
@@ -202,9 +210,18 @@ public class InputPerizinanPage {
     public String getTglAkhir() {
         return inputTglAkhir.getText();
     }
+    public String getAlertTglAkhir() {
+        return txtAlertTglAkhir.getText();
+    }
 
     public String getTglReminder() {
         return inputTglReminder.getText();
+    }
+    public String getAlertTglReminder() {
+        return txtAlertTglReminder.getText();
+    }
+    public String getAlertTidakBolehKosong() {
+        return txtAlertTidakBolehKosong.getText();
     }
 
     public String getFileExtension() {
