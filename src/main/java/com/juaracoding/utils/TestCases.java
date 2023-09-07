@@ -18,19 +18,13 @@ public enum TestCases {
     T15("TLP003 User Input Data Name Lokasi Penyimpanan"),
     T16("TLP004 User Input Data Name With Empty"),
     T17("TLP005 User Input Data Name With Same Name"),
-//    T18("TLP006 User Input Data Name With Space"),
-//    T19("TLP007 User Input Data Name With Special Character"),
-//    T20("TLP008 User Cancel Input Data With Click Button Cancel"),
-//    T21("TLP009 User Cancel Input Data With Click X"),
-//    T22("TLP010 User Edit Data"),
-//    T23("TLP011 User Edit Data With Same Name"),
-//    T24("TLP012 User Edit Data With Special Character"),
-//    T25("TLP013 User Edit Data With Space"),
-//    T26("TLP014 User Edit Data With Empty"),
-//    T27("TLP015 User Cancel Edit Data With Click Button Cancel"),
-//    T28("TLP016 User Cancel Edit Data With Click Button X"),
-//    T29("TLP017 User Go To Home page from Ikon Home"),
-    T18("TL009 User Logout");
+    T18("TLP009 User Cancel Input Data With Click Button Close"),
+    T19("TLP010 User Cancel Input Data With Click X"),
+    T20("TLP011 User Edit Data"),
+    T21("TLP016 User Cancel Edit Data With Click Button Cancel"),
+    T22("TLP017 User Cancel Edit Data With Click Button X"),
+    T23("TLP018 User Go To Home page from Icon Home"),
+    T24("TL009 User Logout");
 
 
     private String testCaseName;
