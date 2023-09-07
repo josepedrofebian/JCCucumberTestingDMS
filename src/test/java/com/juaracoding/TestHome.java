@@ -1,11 +1,8 @@
 package com.juaracoding;
-
-import com.juaracoding.drivers.DriverSingleton;
 import com.juaracoding.pages.HomePage;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -69,5 +66,9 @@ public class TestHome {
         Assert.assertEquals(homePage.getTextHome(), "Home");
         extentTest.log(LogStatus.PASS, "User Direct To Home Page");
     }
-
+    @And("User Click Icon Home")
+    public void user_click_icon_home(){
+        homePage.clickIconHome();
+        extentTest.log(LogStatus.PASS, "User Click Icon Home");
+    }
 }
