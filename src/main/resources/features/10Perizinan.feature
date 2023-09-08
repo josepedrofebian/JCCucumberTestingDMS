@@ -4,15 +4,12 @@ Feature: Perizinan Page Test
     When User Klik Menu Perizinan di Sidebar
     Then User Berhasil Menampilkan Halaman Perizinan
 
-  # Pencarian data Perizinan #
-
-
   # Halaman Input Perizinan #
   Scenario: TP002 User mengunjungi halaman Input Data Perizinan
     When User Klik Tombol Input Data
     Then User Berhasil Menampilkan Halaman Input Data Perizinan
 
-#  # Input Data Perizinan # POSITIF
+  # Input Data Perizinan # POSITIF
 #  Scenario: TP003 User Berhasil Menambahkan Data Perizinan
 #    #When User Klik Tombol Input Data
 #    When User Input Nomor Perizinan
@@ -32,9 +29,9 @@ Feature: Perizinan Page Test
 #    And User Input Status Dokumen
 #    And User Klik Simpan
 #    Then User Berhasil Menyimpan Data
-#
-## Input Data Perizinan # NEGATIF
-#  Scenario: TP004 User Tidak Memasukkan Data Apapun
+
+# Input Data Perizinan # NEGATIF
+  Scenario: TP004 User Tidak Memasukkan Data Apapun
 #    When User Klik Tombol Input Data
 #    And User Klik Simpan
     When User Klik Simpan
@@ -226,19 +223,91 @@ Feature: Perizinan Page Test
     And User Pilih File DOCX Dokumen di Explorer
     Then User Berhasil Diupload File DOCX
 
-  Scenario: TP020 User Hanya Memasukkan Data Kosong dan Invalid
+  Scenario: TP020 User Memilih Share dengan Departemen
     Given Refresh Halaman
-    When User Input Invalid Nomor Perizinan
-    And User Input Invalid Nama Perizinan
-    And User Input Invalid Tanggal Mulai Perizinan Today
-    And User Input Invalid Tanggal Berakhir Perizinan Today
-    And User Input Invalid Diterbitkan Oleh
-    And User Input Invalid Deskripsi
-    And User Input Invalid Pemilik Dokumen
-    And User Input Invalid Dibuat Oleh
-    And User Input Invalid Tim Terkait
-    And User Input Invalid Tanggal Reminder Today
-    And User Input Invalid Jenis Media
-    And User Klik Simpan
-    Then Menampilkan Alert Data Tidak Boleh Kosong
+    When User Pilih Share Ya
+    Then User Menampilkan Departemen Akses
+
+  Scenario: TP021 User Tidak Memilih Share dengan Departemen
+    Given Refresh Halaman
+    When User Pilih Share Tidak
+    Then User Tidak Menampilkan Departemen Akses
+
+#  Scenario: TP022 User Hanya Memasukkan Data Kosong dan Invalid
+#    Given Refresh Halaman
+#    When User Input Invalid Nomor Perizinan
+#    And User Input Invalid Nama Perizinan
+#    And User Input Invalid Tanggal Mulai Perizinan Today
+#    And User Input Invalid Tanggal Berakhir Perizinan Today
+#    And User Input Invalid Diterbitkan Oleh
+#    And User Input Invalid Deskripsi
+#    And User Input Invalid Pemilik Dokumen
+#    And User Input Invalid Dibuat Oleh
+#    And User Input Invalid Tim Terkait
+#    And User Input Invalid Tanggal Reminder Today
+#    And User Input Invalid Jenis Media
+#    And User Klik Simpan
+#    Then Menampilkan Alert Data Tidak Boleh Kosong
+
+  # Pencarian data Perizinan #
+  Scenario: TP023 User Mencari berdasarkan Nomor Perizinan
+    Given Kembali ke halaman sebelumnya
+    When User Memasukkan Keyword di Kolom Pencarian Nomor Perizinan
+    And User Klik Filter
+    Then User Cek Jumlah File
+    And User Mendapatkan Hasil Pencarian yang Sesuai dari Nomor Perizinan
+
+  Scenario: TP024 User Mencari berdasarkan Nama Perizinan
+    Given Refresh Halaman
+    When User Memasukkan Keyword di Kolom Pencarian Nama Perizinan
+    And User Klik Filter
+    Then User Cek Jumlah File
+    And User Mendapatkan Hasil Pencarian yang Sesuai dari Nama Perizinan
+
+  Scenario: TP025 User Mencari berdasarkan Departemen
+    Given Refresh Halaman
+    When User Memasukkan Keyword di Kolom Pencarian Departemen
+    And User Klik Filter
+    Then User Cek Jumlah File
+    And User Mendapatkan Hasil Pencarian yang Sesuai dari Departemen
+
+  Scenario: TP026 User Mencari berdasarkan File yang Ada
+    Given Refresh Halaman
+    When User Memasukkan Keyword di Kolom Pencarian Ketersediaan File Ada
+    And User Klik Filter
+    Then User Cek Jumlah File
+    And User Mendapatkan Hasil Pencarian yang Ada File
+
+  Scenario: TP027 User Mencari berdasarkan File yang Tidak Ada
+    Given Refresh Halaman
+    When User Memasukkan Keyword di Kolom Pencarian Ketersediaan File Tidak Ada
+    And User Klik Filter
+    Then User Cek Jumlah File
+    And User Mendapatkan Hasil Pencarian yang Tidak Ada File
+
+  Scenario: TP028 User Mencari berdasarkan Nomor Perizinan Invalid
+    Given Refresh Halaman
+    When User Memasukkan Keyword Invalid di Kolom Pencarian Nomor Perizinan
+    And User Klik Filter
+    Then User Cek Jumlah File
+    And User Mendapatkan Hasil Tidak Ditemukan
+
+  Scenario: TP029 User Mencari berdasarkan Nama Perizinan Invalid
+    Given Refresh Halaman
+    When User Memasukkan Keyword Invalid di Kolom Pencarian Nama Perizinan
+    And User Klik Filter
+    Then User Cek Jumlah File
+    And User Mendapatkan Hasil Tidak Ditemukan
+
+  Scenario: TP030 User ke Halaman View Data
+    Given Refresh Halaman
+    When User Pilih Satu Data dan Klik Show Data
+    And User Klik View
+    Then User Berhasil Menampilkan Halaman View Data Perizinan
+
+  Scenario: TP031 User ke Halaman Edit Data
+    Given Kembali ke halaman sebelumnya
+    When User Pilih Satu Data dan Klik Show Data
+    And User Klik Edit
+    Then User Berhasil Menampilkan Halaman Edit Data Perizinan
 

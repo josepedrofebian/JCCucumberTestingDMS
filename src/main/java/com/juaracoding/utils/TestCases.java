@@ -28,7 +28,7 @@ public enum TestCases {
     T201("TP001 User Mengunjungi Halaman Perizinan menggunakan Sidebar Menu"),
     T202("TP002 User mengunjungi halaman Input Data Perizinan"),
 //    T203("TP003 User Berhasil Menambahkan Data Perizinan"), //< bagian ini
-//    di komen aja klo gak mau kebanyakan data masuk,
+//    di komen aja klo gak mau kebanyakan data masuk (termasuk T222),
 //    jgn lupa juga dicoment .feature line 15-39, uncoment line 40
     T204("TP004 User Tidak Memasukkan Data Apapun"),
     T205("TP005 User Tidak input Nomor Perizinan"),
@@ -47,6 +47,17 @@ public enum TestCases {
     T218("TP018 User Menambahkan File PDF"),
     T219("TP019 User Menambahkan File DOCX"),
     T220("TP020 User Hanya Memasukkan Data Kosong dan Invalid"),
+    T221("TP021 User Tidak Memilih Share dengan Departemen"),
+    // T222("TP022 User Hanya Memasukkan Data Kosong dan Invalid"),
+    T223("TP023 User Mencari berdasarkan Nomor Perizinan"),
+    T224("TP024 User Mencari berdasarkan Nama Perizinan"),
+    T225("TP025 User Mencari berdasarkan Departemen"),
+    T226("TP026 User Mencari berdasarkan File yang Ada"),
+    T227("TP027 User Mencari berdasarkan File yang Tidak Ada"),
+    T228("TP028 User Mencari berdasarkan Nomor Perizinan Invalid"),
+    T229("TP029 User Mencari berdasarkan Nama Perizinan Invalid"),
+    T230("TP030 User ke Halaman View Data"),
+    T231("TP031 User ke Halaman Edit Data"),
     // tbc...
     T249("TLP018 User Go To Home page from Icon Home"),
     T250("TL009 User Logout");

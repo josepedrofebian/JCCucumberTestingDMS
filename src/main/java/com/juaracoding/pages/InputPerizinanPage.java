@@ -45,12 +45,15 @@ public class InputPerizinanPage {
     WebElement inputFile;
     @FindBy(xpath = "//select[@id='share']")
     WebElement inputShare;
+    @FindBy(xpath = "//label[contains(@class,'col-sm-2')]")
+    WebElement pilihDepartemen;
     @FindBy(xpath = "//select[@id='status']")
     WebElement inputStatus;
     @FindBy(xpath = "//b[normalize-space()='Data berhasil di saved!']")
     WebElement txtBerhasilSave;
     @FindBy(xpath = "//button[@id='singlebutton']")
     WebElement btnSimpan;
+
     //ini gk ada alertnya
     @FindBy(xpath = "//input[@id='alert-masa']")
     WebElement txtAlertTglAkhir;
@@ -140,9 +143,14 @@ public class InputPerizinanPage {
         inputFile.sendKeys(fullPath);
     }
 
-    public void addShare() {
+    public void addShareNo() {
         Select pilihShare = new Select(inputShare);
         pilihShare.selectByIndex(0);
+    }
+
+    public void addShareYes() {
+        Select pilihShare = new Select(inputShare);
+        pilihShare.selectByIndex(1);
     }
 
     public void addStatus() {
@@ -210,16 +218,19 @@ public class InputPerizinanPage {
     public String getTglAkhir() {
         return inputTglAkhir.getText();
     }
-    public String getAlertTglAkhir() {
-        return txtAlertTglAkhir.getText();
-    }
 
     public String getTglReminder() {
         return inputTglReminder.getText();
     }
+
+    public String getAlertTglAkhir() {
+        return txtAlertTglAkhir.getText();
+    }
+
     public String getAlertTglReminder() {
         return txtAlertTglReminder.getText();
     }
+
     public String getAlertTidakBolehKosong() {
         return txtAlertTidakBolehKosong.getText();
     }
@@ -228,6 +239,10 @@ public class InputPerizinanPage {
         String uploadFile = inputFile.getAttribute("value");
         String fileExtension = uploadFile.substring(uploadFile.lastIndexOf(".") + 1);
         return fileExtension;
+    }
+
+    public boolean getDepartemen() {
+        return pilihDepartemen.isDisplayed();
     }
 
     // =============== INVALID METHOD =================== //
