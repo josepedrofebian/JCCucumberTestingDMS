@@ -100,6 +100,7 @@ public class MasterLokasiPenyimpananPage {
         btnEdit.click();
     }
     public void editDataField(String name){
+        editDataField.clear();
         editDataField.sendKeys(name);
     }
     public void clickButtonXEdit(){

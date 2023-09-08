@@ -137,9 +137,11 @@ static WebDriver driver;
         objSelect.selectByValue("Business Development");
     }
     public void inputFieldNamaTemplateEdit(String name){
+        fieldNamaTemplateEdit.clear();
         fieldNamaTemplateEdit.sendKeys(name);
     }
     public void inputFieldFormatNomorSuratEdit(String nomor){
+        fieldFormatNomorSuratEdit.clear();
         fieldFormatNomorSuratEdit.sendKeys(nomor);
     }
     public void clickButtonSimpanEditData(){
