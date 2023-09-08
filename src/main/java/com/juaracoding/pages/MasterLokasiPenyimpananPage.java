@@ -1,13 +1,10 @@
 package com.juaracoding.pages;
 
 import com.juaracoding.drivers.DriverSingleton;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MasterLokasiPenyimpananPage {
     private WebDriver driver; // atribut kelas HomePage
@@ -40,16 +37,12 @@ public class MasterLokasiPenyimpananPage {
     WebElement btnX;
     @FindBy(xpath ="//div[@id='addlok']//h4[@class='modal-title'][normalize-space()='Tambah Data']")
     WebElement textModalTitleTambahData;
-    @FindBy(xpath = "//div[@id='editlok']//h4[@class='modal-title'][normalize-space()='Update Data']")
-    WebElement textModalTitleEditData;
     @FindBy(xpath = "(//div[@class='form-group has-error'])[1]")
     WebElement textErrorMessage;
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/a[1]/span[1]")
     WebElement btnEdit;
     @FindBy(xpath = "//input[@id='enama']")
     WebElement editDataField;
-    @FindBy(xpath = "//div[@id='editlok']//h4[@class='modal-title'][normalize-space()='Update Data']")
-    WebElement txtUpdateData;
     @FindBy(xpath = "//div[@id='editlok']//button[@type='button'][normalize-space()='Close']")
     WebElement btnCloseEdit;
     @FindBy(xpath = "//button[@id='edkode']")
@@ -63,9 +56,6 @@ public class MasterLokasiPenyimpananPage {
     }
     public String getTextModalTitleTambahData(){
         return textModalTitleTambahData.getText();
-    }
-    public String getTextModalTitleEditData(){
-        return textModalTitleEditData.getText();
     }
     public void clickInputData(){
         btnInputData.click();
@@ -105,9 +95,6 @@ public class MasterLokasiPenyimpananPage {
     }
     public String getTextErrorMessage(){
         return textErrorMessage.getText();
-    }
-    public String getInputRequired(){
-            return inputDataField.getAttribute("required");
     }
     public void clickButtonEdit(){
         btnEdit.click();

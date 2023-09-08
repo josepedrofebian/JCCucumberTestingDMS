@@ -36,30 +36,30 @@ public class TestMasterLokasiPenyimpanan {
         extentTest.log(LogStatus.PASS, "User Direct To Lokasi Penyimpanan Page");
     }
 
-    @When("User Input In Field Search")
-    public void user_input_in_field_search() {
+    @When("User Input In Field Search Lokasi Penyimpanan")
+    public void user_input_in_field_search_lokasi_penyimpanan() {
         masterLokasiPenyimpananPage.inputFieldSearch("gudang data");
-        extentTest.log(LogStatus.PASS, "User Input In Field Search");
+        extentTest.log(LogStatus.PASS, "User Input In Field Search Lokasi Penyimpanan");
     }
 
-    @And("User Click Button Search")
-    public void user_click_button_search() {
+    @And("User Click Button Search Lokasi Penyimpanan")
+    public void user_click_button_search_lokasi_penyimpanan() {
         masterLokasiPenyimpananPage.clickButtonSearch();
-        extentTest.log(LogStatus.PASS, "User Click Button Search");
+        extentTest.log(LogStatus.PASS, "User Click Button Search Lokasi Penyimpanan");
     }
 
-    @Then("User Get Data Result Of Search")
-    public void user_get_data_result_of_search() {
+    @Then("User Get Data Result Of Search Lokasi Penyimpanan")
+    public void user_get_data_result_of_search_lokasi_penyimpanan() {
         Assert.assertEquals(masterLokasiPenyimpananPage.getTextResultSearch(), "gudang data");
-        extentTest.log(LogStatus.PASS, "User Get Data Result Of Search");
+        extentTest.log(LogStatus.PASS, "User Get Data Result Of Search Lokasi Penyimpanan");
         masterLokasiPenyimpananPage.clearInputFieldSearch();
         masterLokasiPenyimpananPage.clickButtonSearch();
     }
 
-    @When("User Click Button Input Data")
-    public void user_click_button_input_data() {
+    @When("User Click Button Input Data Lokasi Penyimpanan")
+    public void user_click_button_input_data_lokasi_penyimpanan() {
         masterLokasiPenyimpananPage.clickInputData();
-        extentTest.log(LogStatus.PASS, "User Click Button Input Data");
+        extentTest.log(LogStatus.PASS, "User Click Button Input Data Lokasi Penyimpanan");
     }
 
     @And("User Input Data Nama Lokasi Penyimpanan")
@@ -68,17 +68,17 @@ public class TestMasterLokasiPenyimpanan {
         extentTest.log(LogStatus.PASS, "User Input Data Nama Lokasi Penyimpanan");
     }
 
-    @And("User Click Button Simpan")
-    public void user_click_button_simpan() {
+    @And("User Click Button Simpan Lokasi Penyimpanan")
+    public void user_click_button_simpan_lokasi_penyimpanan() {
         masterLokasiPenyimpananPage.clickButtonSimpanInput();
-        extentTest.log(LogStatus.PASS, "User Click Button Simpan");
+        extentTest.log(LogStatus.PASS, "User Click Button Simpan Lokasi Penyimpanan");
     }
 
-    @Then("User Get Text Success Data Berhasil Disimpan")
-    public void user_get_text_success_data_berhasil_disimpan() {
+    @Then("User Get Text Success Data Berhasil Disimpan Lokasi Penyimpanan")
+    public void user_get_text_success_data_berhasil_disimpan_lokasi_penyimpanan() {
         DriverSingleton.delay(10);
         Assert.assertEquals(masterLokasiPenyimpananPage.getAlertText(), "Data berhasil disimpan");
-        extentTest.log(LogStatus.PASS, "User Get Text Success Data Berhasil Disimpan");
+        extentTest.log(LogStatus.PASS, "User Get Text Success Data Berhasil Disimpan Lokasi Penyimpanan");
         DriverSingleton.delay(10);
         driver.switchTo().alert().accept();
     }
@@ -108,17 +108,19 @@ public class TestMasterLokasiPenyimpanan {
         driver.switchTo().alert().accept();
     }
 
-    @Then("Show Message Error Nama Harus Diisi")
-    public void show_message_error_nama_harus_diisi() {
+    @Then("Show Message Error Nama Harus Diisi Lokasi Penyimpanan")
+    public void show_message_error_nama_harus_diisi_lokasi_penyimpanan() {
         Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama\n" + "Nama harus diisi");
-        extentTest.log(LogStatus.PASS, "Show Message Error Nama Harus Diisi");
+        extentTest.log(LogStatus.PASS, "Show Message Error Nama Harus Diisi Lokasi Penyimpanan");
+        DriverSingleton.delay(5);
         masterLokasiPenyimpananPage.clickButtonCloseInput();
     }
 
-    @Then("Show Message Error Nama Lokasi Sudah Ada")
+    @Then("Show Message Error Nama Lokasi Sudah Ada Lokasi Penyimpanan")
     public void show_message_error_nama_lokasi_sudah_ada() {
         Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama\n" + "Nama Lokasi sudah ada");
-        extentTest.log(LogStatus.PASS, "Show Message Error Nama Lokasi Sudah Ada");
+        extentTest.log(LogStatus.PASS, "Show Message Error Nama Lokasi Sudah Ada Lokasi Penyimpanan");
+        DriverSingleton.delay(5);
         masterLokasiPenyimpananPage.clickButtonCloseInput();
     }
 
@@ -163,10 +165,10 @@ public class TestMasterLokasiPenyimpanan {
         extentTest.log(LogStatus.PASS, "User Click Button X");
     }
 
-    @When("User Click Button Edit Data")
-    public void user_click_button_edit_data(){
+    @When("User Click Button Edit Data Lokasi Penyimpanan")
+    public void user_click_button_edit_data_lokasi_penyimpanan(){
         masterLokasiPenyimpananPage.clickButtonEdit();
-        extentTest.log(LogStatus.PASS, "User Click Button Edit Data");
+        extentTest.log(LogStatus.PASS, "User Click Button Edit Data Lokasi Penyimpanan");
     }
 
     @And("User Edit Data Nama Lokasi Penyimpanan")
@@ -188,16 +190,16 @@ public class TestMasterLokasiPenyimpanan {
         masterLokasiPenyimpananPage.clickButtonCloseInput();
     }
 
-    @And("User Click Button Close Edit")
-    public void user_click_button_close_edit(){
+    @And("User Click Button Close Edit Lokasi Penyimpanan")
+    public void user_click_button_close_edit_lokasi_penyimpanan(){
         masterLokasiPenyimpananPage.clickButtonCloseEdit();
-        extentTest.log(LogStatus.PASS, "User Click Button Close Edit");
+        extentTest.log(LogStatus.PASS, "User Click Button Close Edit Lokasi Penyimpanan");
     }
 
-    @And("User Click Button X Edit")
-    public void user_click_button_x_edit(){
+    @And("User Click Button X Edit Lokasi Penyimpanan")
+    public void user_click_button_x_edit_lokasi_penyimpanan(){
         masterLokasiPenyimpananPage.clickButtonXEdit();
-        extentTest.log(LogStatus.PASS, "User Click Button X Edit");
+        extentTest.log(LogStatus.PASS, "User Click Button X Edit Lokasi Penyimpanan");
     }
 
     @When("User Click Icon Home From Lokasi Penyimpanan Page")
