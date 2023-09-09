@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage {
@@ -17,6 +18,9 @@ public class HomePage {
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
+    public static String valueInternalDocument = "";
+    public static String valueEksternalDocument = "";
+    public static String valuePerizinan="";
 
     @FindBy(xpath = "//a[@href='https://dev.ptdika.com/dokumen/admin/list_internal_dokumen'][normalize-space()='More info']")
     WebElement btnMoreInfoDirectToInternalPage;
@@ -36,6 +40,14 @@ public class HomePage {
     WebElement txtHome;
     @FindBy(xpath = "//a[contains(text(),'Home')]")
     WebElement iconHome;
+    @FindBy(xpath = "//i[@id='jml']")
+    WebElement txtValueOfDocuments;
+    @FindBy(xpath = "//div[@class='small-box bg-aqua']//div[@class='inner']/h3")
+    WebElement txtValueOfDocumentsInCardInternal;
+    @FindBy(xpath = "//div[@class='small-box bg-green']//div[@class='inner']/h3")
+    WebElement txtValueOfDocumentsInCardEksternal;
+    @FindBy(xpath = "//div[@class='small-box bg-yellow']//div[@class='inner']/h3")
+    WebElement txtValueOfDocumentsInCardPerizinan;
 
     public void clickMoreInfoToInternalPage() {
         btnMoreInfoDirectToInternalPage.click();
@@ -72,5 +84,23 @@ public class HomePage {
     public void clickIconHome() {
         iconHome.click();
     }
-
+    public String getTextValueOfDocuments(){return txtValueOfDocuments.getText();}
+    public void getTextValueOfDocumentsInCardInternal(){
+            valueInternalDocument += txtValueOfDocumentsInCardInternal.getText();
+    }
+    public String getValueOfCardInternal(){
+        return valueInternalDocument;
+    }
+    public void getTextValueOfDocumentsInCardEksternal(){
+        valueEksternalDocument += txtValueOfDocumentsInCardEksternal.getText();
+    }
+    public String getValueOfCardEksternal(){
+        return valueEksternalDocument;
+    }
+    public void getTextValueOfDocumentsInCardPerizinan(){
+        valuePerizinan += txtValueOfDocumentsInCardPerizinan.getText();
+    }
+    public String getValueOfCardPerizinan(){
+        return valuePerizinan;
+    }
 }

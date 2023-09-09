@@ -61,5 +61,18 @@ public class DriverSingleton {
         String randomString = sb.toString();
         return randomString;
     }
+    public static String randomCharacter() {
+        String alphabet = "!@#$%^&*()";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        int length = 4;
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(alphabet.length());
+            char randomChar = alphabet.charAt(index);
+            sb.append(randomChar);
+        }
+        String randomString = sb.toString();
+        return randomString;
+    }
 }
 

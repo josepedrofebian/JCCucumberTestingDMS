@@ -28,6 +28,17 @@ Feature: Master Lokasi Penyimpanan Page Test
     And User Click Button Simpan Lokasi Penyimpanan
     Then Show Message Error Nama Lokasi Sudah Ada Lokasi Penyimpanan
 
+  Scenario: TLP007 User Input Data Lokasi Penyimpanan Name With Spesial Character
+    When User Click Button Input Data Lokasi Penyimpanan
+    And User Input Data Nama Lokasi Penyimpanan With Special Character
+    And User Click Button Simpan Lokasi Penyimpanan
+    Then Show Message Error Nama Tidak Boleh Mengandung Spesial Karakter
+
+  Scenario: TLP008 Show Modal Input Data
+    When User Click Button Input Data Lokasi Penyimpanan
+    Then Show Modal Tambah Data
+    And User Click Button Close
+
   Scenario: TLP009 User Cancel Input Data Lokasi Penyimpanan With Click Button Close
     When User Click Button Input Data Lokasi Penyimpanan
     And User Click Button Close

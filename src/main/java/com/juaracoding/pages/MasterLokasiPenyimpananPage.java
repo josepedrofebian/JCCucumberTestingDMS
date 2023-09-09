@@ -3,6 +3,7 @@ package com.juaracoding.pages;
 import com.juaracoding.drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -37,7 +38,7 @@ public class MasterLokasiPenyimpananPage {
     WebElement btnX;
     @FindBy(xpath ="//div[@id='addlok']//h4[@class='modal-title'][normalize-space()='Tambah Data']")
     WebElement textModalTitleTambahData;
-    @FindBy(xpath = "(//div[@class='form-group has-error'])[1]")
+    @FindBy(xpath = "//span[@class='help-block']")
     WebElement textErrorMessage;
     @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/a[1]/span[1]")
     WebElement btnEdit;
@@ -100,7 +101,6 @@ public class MasterLokasiPenyimpananPage {
         btnEdit.click();
     }
     public void editDataField(String name){
-        editDataField.clear();
         editDataField.sendKeys(name);
     }
     public void clickButtonXEdit(){
@@ -114,5 +114,9 @@ public class MasterLokasiPenyimpananPage {
     }
     public void clickIconHome(){
         iconHome.click();
+    }
+    public void clickOtherSpace(){
+        Actions act = new Actions(driver);
+        act.moveByOffset(649,336).click().perform();
     }
 }

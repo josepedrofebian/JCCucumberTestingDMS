@@ -103,14 +103,14 @@ public class TestMasterLokasiPenyimpanan {
 
     @And("User Input Data Nama Lokasi Penyimpanan With Special Character")
     public void user_input_data_nama_lokasi_penyimpanan_with_spesial_character() {
-        masterLokasiPenyimpananPage.inputDataNamaLokasi("&&&^^%");
+        masterLokasiPenyimpananPage.inputDataNamaLokasi(DriverSingleton.randomCharacter());
         extentTest.log(LogStatus.PASS, "User Input Data Nama Lokasi Penyimpanan With Special Character");
-        driver.switchTo().alert().accept();
     }
 
     @Then("Show Message Error Nama Harus Diisi Lokasi Penyimpanan")
     public void show_message_error_nama_harus_diisi_lokasi_penyimpanan() {
-        Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama\n" + "Nama harus diisi");
+        DriverSingleton.delay(5);
+        Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama harus diisi");
         extentTest.log(LogStatus.PASS, "Show Message Error Nama Harus Diisi Lokasi Penyimpanan");
         DriverSingleton.delay(5);
         masterLokasiPenyimpananPage.clickButtonCloseInput();
@@ -118,7 +118,8 @@ public class TestMasterLokasiPenyimpanan {
 
     @Then("Show Message Error Nama Lokasi Sudah Ada Lokasi Penyimpanan")
     public void show_message_error_nama_lokasi_sudah_ada() {
-        Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama\n" + "Nama Lokasi sudah ada");
+        DriverSingleton.delay(5);
+        Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama Lokasi sudah ada");
         extentTest.log(LogStatus.PASS, "Show Message Error Nama Lokasi Sudah Ada Lokasi Penyimpanan");
         DriverSingleton.delay(5);
         masterLokasiPenyimpananPage.clickButtonCloseInput();
@@ -126,15 +127,20 @@ public class TestMasterLokasiPenyimpanan {
 
     @Then("Show Message Error Nama Tidak Boleh Hanya Spasi")
     public void show_message_error_nama_tidak_boleh_hanya_spasi() {
+        DriverSingleton.delay(5);
         Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama tidak boleh hanya spasi");
         extentTest.log(LogStatus.PASS, "Show Message Error Nama Tidak Boleh Hanya Spasi");
+        DriverSingleton.delay(10);
+        masterLokasiPenyimpananPage.clickOtherSpace();
     }
 
     @Then("Show Message Error Nama Tidak Boleh Mengandung Spesial Karakter")
     public void show_message_error_nama_tidak_boleh_mengandung_spesial_karakter() {
+        DriverSingleton.delay(5);
         Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama Tidak Boleh Mengandung Spesisal Karakter");
         extentTest.log(LogStatus.PASS, "Show Message Error Nama Tidak Boleh Mengandung Spesial Karakter");
-        masterLokasiPenyimpananPage.clickButtonCloseInput();
+        DriverSingleton.delay(10);
+        masterLokasiPenyimpananPage.clickOtherSpace();
     }
 
     @Then("User Get Text Success Data Berhasil Diubah")
@@ -154,58 +160,64 @@ public class TestMasterLokasiPenyimpanan {
     }
 
     @And("User Click Button Close")
-    public void user_click_button_close(){
+    public void user_click_button_close() {
         masterLokasiPenyimpananPage.clickButtonCloseInput();
         extentTest.log(LogStatus.PASS, "User Click Button Close");
     }
 
     @And("User Click Button X")
-    public void user_click_button_x(){
+    public void user_click_button_x() {
         masterLokasiPenyimpananPage.clickButtonXInput();
         extentTest.log(LogStatus.PASS, "User Click Button X");
     }
 
     @When("User Click Button Edit Data Lokasi Penyimpanan")
-    public void user_click_button_edit_data_lokasi_penyimpanan(){
+    public void user_click_button_edit_data_lokasi_penyimpanan() {
         masterLokasiPenyimpananPage.clickButtonEdit();
         extentTest.log(LogStatus.PASS, "User Click Button Edit Data Lokasi Penyimpanan");
     }
 
     @And("User Edit Data Nama Lokasi Penyimpanan")
-    public void user_edit_data_nama_lokasi_penyimpanan(){
+    public void user_edit_data_nama_lokasi_penyimpanan() {
         masterLokasiPenyimpananPage.editDataField(DriverSingleton.randomString());
         extentTest.log(LogStatus.PASS, "User Edit Data Nama Lokasi Penyimpanan");
     }
 
     @And("User Click Button Simpan Edit")
-    public void user_click_button_simpan_edit(){
+    public void user_click_button_simpan_edit() {
         masterLokasiPenyimpananPage.clickButtonSimpanEdit();
         extentTest.log(LogStatus.PASS, "User Click Button Simpan Edit");
     }
 
     @Then("User Get Text Title Input Data")
-    public void user_get_title_input_data(){
-        Assert.assertEquals(masterLokasiPenyimpananPage.getTextModalTitleTambahData(),"Tambah Data");
+    public void user_get_title_input_data() {
+        Assert.assertEquals(masterLokasiPenyimpananPage.getTextModalTitleTambahData(), "Tambah Data");
         extentTest.log(LogStatus.PASS, "User Get Text Title Input Data");
         masterLokasiPenyimpananPage.clickButtonCloseInput();
     }
 
     @And("User Click Button Close Edit Lokasi Penyimpanan")
-    public void user_click_button_close_edit_lokasi_penyimpanan(){
+    public void user_click_button_close_edit_lokasi_penyimpanan() {
         masterLokasiPenyimpananPage.clickButtonCloseEdit();
         extentTest.log(LogStatus.PASS, "User Click Button Close Edit Lokasi Penyimpanan");
     }
 
     @And("User Click Button X Edit Lokasi Penyimpanan")
-    public void user_click_button_x_edit_lokasi_penyimpanan(){
+    public void user_click_button_x_edit_lokasi_penyimpanan() {
         masterLokasiPenyimpananPage.clickButtonXEdit();
         extentTest.log(LogStatus.PASS, "User Click Button X Edit Lokasi Penyimpanan");
     }
 
     @When("User Click Icon Home From Lokasi Penyimpanan Page")
-    public void user_click_icon_home_from_lokasi_penyimpanan_page(){
+    public void user_click_icon_home_from_lokasi_penyimpanan_page() {
         masterLokasiPenyimpananPage.clickIconHome();
         extentTest.log(LogStatus.PASS, "User Click Icon Home From Lokasi Penyimpanan Page");
+    }
+    @Then("Show Modal Tambah Data")
+    public void show_modal_tambah_data(){
+        DriverSingleton.delay(5);
+        Assert.assertEquals(masterLokasiPenyimpananPage.getTextModalTitleTambahData(),"Tambah Data");
+        DriverSingleton.delay(5);
     }
 
 }

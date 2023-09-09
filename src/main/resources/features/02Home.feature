@@ -12,6 +12,21 @@ Feature: Home Page Test
     When User Click Button More Info Perizinan
     Then User Direct To Perizinan Page
 
+  Scenario: TH004 Value Internal Document Card Same Like Value Internal Document Page
+    When Get Text Value Of Internal Document In Card
+    And User Click Button More Info Internal
+    Then Get Text Value Of Internal Document
+
+  Scenario: TH005 Value Eksternal Document Card Same Like Value Eksternal Document Page
+    When Get Text Value Of Eksternal Document In Card
+    And User Click Button More Info Eksternal
+    Then Get Text Value Of Eksternal Document
+
+  Scenario: TH006 Value Perizinan Card Same Like Value Perizinan Page
+    When Get Text Value Of Perizinan In Card
+    And User Click Button More Info Perizinan
+    Then Get Text Value Of Perizinan
+
   Scenario: TH007 User Go To Home Page From Side Bar Menu Home
     When User Click Side Bar Menu Home
     Then User Direct To Home Page

@@ -101,12 +101,39 @@ Feature: Master Template Page Test
     And User Click Button Simpan Template Edit
     Then User Get Text Success Data Berhasil Diubah Template
 
-  Scenario: TT014 User Cancel Edit Data Template With Button Close
+  Scenario: TT014 User Edit Data Kategory Eksternal And Departement Business Development Template
+    When User Click Button Edit Data Template
+    And User Choose Kategory Dropdown Eksternal Edit
+    And User Choose Departemen Dropdown Business Development Edit
+    And User Input In Field Nama Template Edit
+    And User Input In Field Format Nomor Surat Edit
+    And User Click Button Simpan Template Edit
+    Then User Get Text Success Data Berhasil Diubah Template
+
+  Scenario: TT015 User Edit Data Kategory Eksternal And Departement HRD Template
+    When User Click Button Edit Data Template
+    And User Choose Kategory Dropdown Eksternal Edit
+    And User Choose Departemen Dropdown HRD Edit
+    And User Input In Field Nama Template Edit
+    And User Input In Field Format Nomor Surat Edit
+    And User Click Button Simpan Template Edit
+    Then User Get Text Success Data Berhasil Diubah Template
+
+  Scenario: TT016 User Edit Data Kategory Eksternal And Departement Direksi Template
+    When User Click Button Edit Data Template
+    And User Choose Kategory Dropdown Eksternal Edit
+    And User Choose Departemen Dropdown Direksi Edit
+    And User Input In Field Nama Template Edit
+    And User Input In Field Format Nomor Surat Edit
+    And User Click Button Simpan Template Edit
+    Then User Get Text Success Data Berhasil Diubah Template
+
+  Scenario: TT017 User Cancel Edit Data Template With Button Close
     When User Click Button Edit Data Template
     And User Click Button CLose Edit Data Template
     Then User Get Text Title In Template Page
 
-  Scenario: TT015 User Cancel Edit Data Template With Button X
+  Scenario: TT018 User Cancel Edit Data Template With Button X
     When User Click Button Edit Data Template
     And User Click Button X Edit Data Template
     Then User Get Text Title In Template Page

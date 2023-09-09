@@ -1,4 +1,5 @@
 package com.juaracoding;
+import com.juaracoding.drivers.DriverSingleton;
 import com.juaracoding.pages.HomePage;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -70,5 +71,44 @@ public class TestHome {
     public void user_click_icon_home(){
         homePage.clickIconHome();
         extentTest.log(LogStatus.PASS, "User Click Icon Home");
+    }
+    @Then("Get Text Value Of Internal Document")
+    public void get_text_value_of_internal_document(){
+        DriverSingleton.delay(5);
+        Assert.assertEquals(homePage.getTextValueOfDocuments(),homePage.getValueOfCardInternal());
+        extentTest.log(LogStatus.PASS, "Get Text Value Of Internal Document");
+        homePage.clickSideBarMenuHome();
+    }
+    @When("Get Text Value Of Internal Document In Card")
+    public void get_text_value_of_internal_document_in_card(){
+        DriverSingleton.delay(5);
+        homePage.getTextValueOfDocumentsInCardInternal();
+        extentTest.log(LogStatus.PASS, "Get Text Value Of Internal Document In Card");
+    }
+    @When("Get Text Value Of Eksternal Document In Card")
+    public void get_text_value_of_eksternal_document_in_card(){
+        DriverSingleton.delay(5);
+        homePage.getTextValueOfDocumentsInCardEksternal();
+        extentTest.log(LogStatus.PASS, "Get Text Value Of Eksternal Document In Card");
+    }
+    @Then("Get Text Value Of Eksternal Document")
+    public void get_text_value_of_eksternal_document(){
+        DriverSingleton.delay(5);
+        Assert.assertEquals(homePage.getTextValueOfDocuments(),homePage.getValueOfCardEksternal());
+        extentTest.log(LogStatus.PASS, "Get Text Value Of Eksternal Document");
+        homePage.clickSideBarMenuHome();
+    }
+    @When("Get Text Value Of Perizinan In Card")
+    public void get_text_value_of_perizinan_in_card(){
+        DriverSingleton.delay(5);
+        homePage.getTextValueOfDocumentsInCardPerizinan();
+        extentTest.log(LogStatus.PASS, "Get Text Value Of Perizinan In Card");
+    }
+    @Then("Get Text Value Of Perizinan")
+    public void get_text_value_of_perizinan(){
+        DriverSingleton.delay(5);
+        Assert.assertEquals(homePage.getTextValueOfDocuments(),homePage.getValueOfCardPerizinan());
+        extentTest.log(LogStatus.PASS, "Get Text Value Of Perizinan");
+        homePage.clickSideBarMenuHome();
     }
 }
