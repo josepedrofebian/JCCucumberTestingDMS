@@ -23,7 +23,7 @@ public class MasterLokasiPenyimpananPage {
     WebElement fieldSearch;
     @FindBy(xpath = "//i[@class='glyphicon glyphicon-search']")
     WebElement buttonSearch;
-    @FindBy(xpath = "//td[normalize-space()='test']")
+    @FindBy(xpath = "//td[normalize-space()='gudang data']")
     WebElement txtResultSearch;
     @FindBy(xpath = "//button[normalize-space()='Input Data']")
     WebElement btnInputData;
@@ -37,30 +37,25 @@ public class MasterLokasiPenyimpananPage {
     WebElement btnX;
     @FindBy(xpath ="//div[@id='addlok']//h4[@class='modal-title'][normalize-space()='Tambah Data']")
     WebElement textModalTitleTambahData;
-    @FindBy(xpath = "//div[@id='editlok']//h4[@class='modal-title'][normalize-space()='Update Data']")
-    WebElement textModalTitleEditData;
     @FindBy(xpath = "(//div[@class='form-group has-error'])[1]")
     WebElement textErrorMessage;
-    @FindBy(xpath = "//a[@id='21']//span[@class='btn btn-xs btn-warning'][normalize-space()='Edit']")
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/a[1]/span[1]")
     WebElement btnEdit;
     @FindBy(xpath = "//input[@id='enama']")
     WebElement editDataField;
-    @FindBy(xpath = "//div[@id='editlok']//h4[@class='modal-title'][normalize-space()='Update Data']")
-    WebElement txtUpdateData;
     @FindBy(xpath = "//div[@id='editlok']//button[@type='button'][normalize-space()='Close']")
     WebElement btnCloseEdit;
     @FindBy(xpath = "//button[@id='edkode']")
     WebElement btnSimpanEdit;
     @FindBy(xpath = "//div[@id='editlok']//span[@aria-hidden='true'][normalize-space()='×']")
     WebElement btnXEdit;
+    @FindBy(xpath = "//a[@href='https://dev.ptdika.com/dokumen/home'] ")
+    WebElement iconHome;
     public void clickButtonXInput(){
         btnX.click();
     }
     public String getTextModalTitleTambahData(){
         return textModalTitleTambahData.getText();
-    }
-    public String getTextModalTitleEditData(){
-        return textModalTitleEditData.getText();
     }
     public void clickInputData(){
         btnInputData.click();
@@ -89,6 +84,9 @@ public class MasterLokasiPenyimpananPage {
     public void inputFieldSearch(String input){
         fieldSearch.sendKeys(input);
     }
+    public void clearInputFieldSearch(){
+        fieldSearch.clear();
+    }
     public void clickButtonSearch(){
         buttonSearch.click();
     }
@@ -102,6 +100,7 @@ public class MasterLokasiPenyimpananPage {
         btnEdit.click();
     }
     public void editDataField(String name){
+        editDataField.clear();
         editDataField.sendKeys(name);
     }
     public void clickButtonXEdit(){
@@ -112,5 +111,8 @@ public class MasterLokasiPenyimpananPage {
     }
     public void clickButtonSimpanEdit(){
         btnSimpanEdit.click();
+    }
+    public void clickIconHome(){
+        iconHome.click();
     }
 }

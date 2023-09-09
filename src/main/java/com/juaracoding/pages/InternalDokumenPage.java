@@ -164,6 +164,9 @@ public class InternalDokumenPage {
     public void clickBtnShorting50() {
         btnShorting.sendKeys("50");
     }
+    public void clickBtnShorting100() {
+        btnShorting.sendKeys("100");
+    }
 
     public void inputNomorDokumen() {
         inputNomorDokumen.sendKeys(DriverSingleton.randomString());

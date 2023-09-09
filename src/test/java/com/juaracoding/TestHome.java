@@ -1,6 +1,4 @@
 package com.juaracoding;
-
-import com.juaracoding.drivers.DriverSingleton;
 import com.juaracoding.pages.HomePage;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;

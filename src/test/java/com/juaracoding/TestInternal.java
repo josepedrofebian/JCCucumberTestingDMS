@@ -171,6 +171,11 @@ public class TestInternal {
         internalDokumenPage.clickBtnShorting50();
         extentTest.log(LogStatus.PASS, "User Click Shorting Data 50");
     }
+    @And("User Click Shorting Data 100")
+    public void user_click_shorting_data_100() {
+        internalDokumenPage.clickBtnShorting100();
+        extentTest.log(LogStatus.PASS, "User Click Shorting Data 100");
+    }
 
     @And("User Click Icon Plus")
     public void user_click_view_data() {
