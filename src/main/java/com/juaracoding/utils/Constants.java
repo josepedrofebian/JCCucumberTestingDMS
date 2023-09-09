@@ -5,6 +5,7 @@ public class Constants {
     public static final String BROWSER = "chrome";
     public static final String URL = "https://dev.ptdika.com/dokumen/home/login";
     public static final String URLINVALID = "https://dev.ptdika.com/dokumen/home/login1";
-    public static final String USERNAME = "sqamagang5";
+    public static final String USERNAME = "sqamagang3";
     public static final String PASSWORD = "a";
+    public static final String LOKASI_FILE = "C:/Users/L460/Downloads/Astra_International_Test.pdf";
 }
