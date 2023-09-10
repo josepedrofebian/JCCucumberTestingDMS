@@ -131,7 +131,7 @@ public class TestMasterLokasiPenyimpanan {
         Assert.assertEquals(masterLokasiPenyimpananPage.getTextErrorMessage(), "Nama tidak boleh hanya spasi");
         extentTest.log(LogStatus.PASS, "Show Message Error Nama Tidak Boleh Hanya Spasi");
         DriverSingleton.delay(10);
-        masterLokasiPenyimpananPage.clickOtherSpace();
+        masterLokasiPenyimpananPage.clickButtonCloseInput();
     }
 
     @Then("Show Message Error Nama Tidak Boleh Mengandung Spesial Karakter")

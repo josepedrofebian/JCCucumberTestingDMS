@@ -30,7 +30,7 @@ public class MasterLokasiPenyimpananPage {
     WebElement btnInputData;
     @FindBy(xpath ="//input[@id='nama']")
     WebElement inputDataField;
-    @FindBy(xpath ="//div[@id='addlok']//button[@type='button'][normalize-space()='Close']")
+    @FindBy(xpath = "(//button[@type='button'])[4]")
     WebElement btnClose;
     @FindBy(xpath ="//button[@id='addlokgo']")
     WebElement btnSimpan;

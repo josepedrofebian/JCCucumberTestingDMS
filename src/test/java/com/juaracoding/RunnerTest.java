@@ -7,6 +7,7 @@ import io.cucumber.testng.CucumberOptions;
                 "src/main/resources/features/02Home.feature",
                 "src/main/resources/features/05MasterLokasiPenyimpanan.feature",
                 "src/main/resources/features/08MasterTemplate.feature",
+                "src/main/resources/features/09InternalDokumen.feature",
                 "src/main/resources/features/10Perizinan.feature",
                 "src/main/resources/features/11Logout.feature"},
         glue = "com.juaracoding",
