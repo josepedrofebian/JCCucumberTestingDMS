@@ -154,11 +154,18 @@ public class TestMasterLokasiPenyimpanan {
 
     @Then("Show Message Error Edit Data Dengan Lokasi Yang Baru")
     public void show_message_error_edit_data_dengan_lokasi_yang_baru() {
-        Assert.assertEquals(masterLokasiPenyimpananPage.getAlertText(), "Data berhasil diubah");
-        extentTest.log(LogStatus.PASS, "User Get Text Success Data Berhasil Diubah");
-        driver.switchTo().alert().accept();
+        DriverSingleton.delay(5);
+        Assert.assertEquals(masterLokasiPenyimpananPage.isRequiredEditField(), "Edit Data Dengan Lokasi Yang Baru");
+        extentTest.log(LogStatus.PASS, "Show Message Error Edit Data Dengan Lokasi Yang Baru");
+        DriverSingleton.delay(10);
+        masterLokasiPenyimpananPage.clickButtonCloseEdit();
     }
-
+    @Then("Show Message Error Edit Data Tidak Boleh Kosong")
+    public void show_message_error_edit_data_tidak_boleh_kosong(){
+        DriverSingleton.delay(5);
+        Assert.assertEquals(masterLokasiPenyimpananPage.isRequiredEditField(),"Edit Data Tidak Boleh Kosong");
+        extentTest.log(LogStatus.PASS, "Show Message Error Edit Data Tidak Boleh Kosong");
+    }
     @And("User Click Button Close")
     public void user_click_button_close() {
         masterLokasiPenyimpananPage.clickButtonCloseInput();
@@ -173,6 +180,7 @@ public class TestMasterLokasiPenyimpanan {
 
     @When("User Click Button Edit Data Lokasi Penyimpanan")
     public void user_click_button_edit_data_lokasi_penyimpanan() {
+        DriverSingleton.delay(10);
         masterLokasiPenyimpananPage.clickButtonEdit();
         extentTest.log(LogStatus.PASS, "User Click Button Edit Data Lokasi Penyimpanan");
     }
@@ -217,7 +225,27 @@ public class TestMasterLokasiPenyimpanan {
     public void show_modal_tambah_data(){
         DriverSingleton.delay(5);
         Assert.assertEquals(masterLokasiPenyimpananPage.getTextModalTitleTambahData(),"Tambah Data");
+        extentTest.log(LogStatus.PASS, "Show Modal Tambah Data");
         DriverSingleton.delay(5);
+    }
+    @And("User Edit Data Nama Lokasi Penyimpanan With Special Character")
+    public void user_edit_data_nama_lokasi_penyimpanan_with_special_character(){
+        masterLokasiPenyimpananPage.clearEditDataField();
+        masterLokasiPenyimpananPage.editDataField(DriverSingleton.randomCharacter());
+        extentTest.log(LogStatus.PASS, "User Edit Data Nama Lokasi Penyimpanan With Special Character");
+    }
+    @And("User Edit Data Nama Lokasi Penyimpanan With Space")
+    public void user_edit_data_nama_lokasi_penyimpanan_with_space(){
+        masterLokasiPenyimpananPage.clearEditDataField();
+        DriverSingleton.delay(5);
+        masterLokasiPenyimpananPage.editDataField("    ");
+        extentTest.log(LogStatus.PASS, "User Edit Data Nama Lokasi Penyimpanan With Space");
+    }
+    @And("User Edit Data Nama Lokasi Penyimpanan With Empty")
+    public void user_edit_data_nama_lokasi_penyimpanan_with_empty(){
+        masterLokasiPenyimpananPage.clearEditDataField();
+        DriverSingleton.delay(5);
+        extentTest.log(LogStatus.PASS, "User Edit Data Nama Lokasi Penyimpanan With Empty");
     }
 
 }

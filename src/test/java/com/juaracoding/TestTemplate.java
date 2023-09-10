@@ -34,6 +34,7 @@ public class TestTemplate {
     public void user_get_text_title_in_template_page() {
         Assert.assertEquals(masterTemplatePage.getTextTitleTemplatePage(),"Data Template Nomor Surat");
         extentTest.log(LogStatus.PASS, "User Get Text Title In Template Page");
+        DriverSingleton.delay(5);
     }
     @When("User Input In Field Search Template")
     public void user_input_in_field_search_lokasi_penyimpanan() {

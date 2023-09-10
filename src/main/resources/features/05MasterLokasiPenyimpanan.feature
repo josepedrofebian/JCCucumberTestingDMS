@@ -28,8 +28,15 @@ Feature: Master Lokasi Penyimpanan Page Test
     And User Click Button Simpan Lokasi Penyimpanan
     Then Show Message Error Nama Lokasi Sudah Ada Lokasi Penyimpanan
 
-  Scenario: TLP007 User Input Data Lokasi Penyimpanan Name With Spesial Character
+  Scenario: TLP006 User Input Data Lokasi Penyimpanan Name With Space
     When User Click Button Input Data Lokasi Penyimpanan
+    And User Input Data Nama Lokasi Penyimpanan With Space
+    And User Click Button Simpan Lokasi Penyimpanan
+    Then Show Message Error Nama Tidak Boleh Hanya Spasi
+
+  Scenario: TLP007 User Input Data Lokasi Penyimpanan Name With Spesial Character
+    When User Click Button Close
+    And User Click Button Input Data Lokasi Penyimpanan
     And User Input Data Nama Lokasi Penyimpanan With Special Character
     And User Click Button Simpan Lokasi Penyimpanan
     Then Show Message Error Nama Tidak Boleh Mengandung Spesial Karakter
@@ -54,6 +61,29 @@ Feature: Master Lokasi Penyimpanan Page Test
     And User Edit Data Nama Lokasi Penyimpanan
     And User Click Button Simpan Edit
     Then User Get Text Success Data Berhasil Diubah
+
+  Scenario: TLP012 User Edit Data Nama Lokasi Penyimpanan With Same Name
+    When User Click Button Edit Data Lokasi Penyimpanan
+    And User Click Button Simpan Edit
+    Then Show Message Error Edit Data Dengan Lokasi Yang Baru
+
+  Scenario: TLP013 User Edit Data Nama Lokasi Penyimpanan With Special Character
+    When User Click Button Close Edit Lokasi Penyimpanan
+    And User Click Button Edit Data Lokasi Penyimpanan
+    And User Edit Data Nama Lokasi Penyimpanan With Special Character
+    And User Click Button Simpan Edit
+    Then Show Message Error Nama Tidak Boleh Mengandung Spesial Karakter
+
+  Scenario: TLP014 User Edit Data Nama With Space
+    When User Click Button Edit Data Lokasi Penyimpanan
+    And User Edit Data Nama Lokasi Penyimpanan With Space
+    And User Click Button Simpan Edit
+    Then Show Message Error Edit Data Dengan Lokasi Yang Baru
+
+  Scenario: TLP015 User Edit Data Nama With Empty
+    When User Edit Data Nama Lokasi Penyimpanan With Empty
+    And User Click Button Simpan Edit
+    Then Show Message Error Edit Data Tidak Boleh Kosong
 
   Scenario: TLP016 User Cancel Edit Data Lokasi Penyimpanan With Click Button Cancel
     When User Click Button Edit Data Lokasi Penyimpanan

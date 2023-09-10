@@ -44,7 +44,7 @@ public class MasterLokasiPenyimpananPage {
     WebElement btnEdit;
     @FindBy(xpath = "//input[@id='enama']")
     WebElement editDataField;
-    @FindBy(xpath = "//div[@id='editlok']//button[@type='button'][normalize-space()='Close']")
+    @FindBy(xpath = "(//button[@type='button'])[7]")
     WebElement btnCloseEdit;
     @FindBy(xpath = "//button[@id='edkode']")
     WebElement btnSimpanEdit;
@@ -103,6 +103,9 @@ public class MasterLokasiPenyimpananPage {
     public void editDataField(String name){
         editDataField.sendKeys(name);
     }
+    public void clearEditDataField(){
+        editDataField.clear();
+    }
     public void clickButtonXEdit(){
         btnXEdit.click();
     }
@@ -118,5 +121,8 @@ public class MasterLokasiPenyimpananPage {
     public void clickOtherSpace(){
         Actions act = new Actions(driver);
         act.moveByOffset(649,336).click().perform();
+    }
+    public String isRequiredEditField(){
+        return editDataField.getAttribute("required");
     }
 }
