@@ -1,6 +1,10 @@
 Feature: Master Template Page Test
 
   Scenario: TT001 User Go To Template page from Side Bar Menu
+    Given  User Enter Valid Url DMS
+    And User Input Valid Username
+    And User Input Valid Password
+    And User Click Button Login
     When User Click Side Bar Menu Data Master
     And User Click Menu Template
     Then User Get Text Title In Template Page
@@ -137,3 +141,4 @@ Feature: Master Template Page Test
     When User Click Button Edit Data Template
     And User Click Button X Edit Data Template
     Then User Get Text Title In Template Page
+    And User Click Button Logout

@@ -1,6 +1,10 @@
 Feature: Master Lokasi Penyimpanan Page Test
 
   Scenario: TLP001 User Go To Lokasi Penyimpanan page from Side Bar Menu
+    Given  User Enter Valid Url DMS
+    And User Input Valid Username
+    And User Input Valid Password
+    And User Click Button Login
     When User click Side Bar Menu Data Master
     And User click menu lokasi penyimpanan
     Then User Direct To Lokasi Penyimpanan Page
@@ -98,3 +102,4 @@ Feature: Master Lokasi Penyimpanan Page Test
   Scenario: TLP018 User Go To Home page from Icon Home Lokasi Penyimpanan
     When User Click Icon Home From Lokasi Penyimpanan Page
     Then User Direct To Home Page
+    And User Click Button Logout

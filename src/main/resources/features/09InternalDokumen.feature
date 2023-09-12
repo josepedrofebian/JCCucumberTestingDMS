@@ -1,6 +1,10 @@
 Feature: Internal Dokumen Page Test
 
   Scenario:ID001 User Go To Internal Page From Internal
+    Given  User Enter Valid Url DMS
+    And User Input Valid Username
+    And User Input Valid Password
+    And User Click Button Login
     When User Click Button Internal Dokumen
     Then User Direct To Dokumen Internal
 
@@ -320,3 +324,4 @@ Feature: Internal Dokumen Page Test
     When User Click Button Internal Dokumen
     And User Click Shorting Data 100
     Then User Get Text Showing 100
+    And User Click Button Logout

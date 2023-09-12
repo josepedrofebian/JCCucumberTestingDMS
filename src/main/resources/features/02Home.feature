@@ -1,6 +1,10 @@
 Feature: Home Page Test
 
   Scenario: TH001 User Go To Internal Page From Internal Card More Info
+    Given  User Enter Valid Url DMS
+    And User Input Valid Username
+    And User Input Valid Password
+    And User Click Button Login
     When User Click Button More Info Internal
     Then User Direct To Internal Dokumen Page
 
@@ -32,8 +36,9 @@ Feature: Home Page Test
     Then User Direct To Home Page
 
   Scenario: TH008 User Go To Home Page From Icon Home
-    And User Click Icon Home
+    When User Click Icon Home
     Then User Direct To Home Page
+    And User Click Button Logout
 
 
 
