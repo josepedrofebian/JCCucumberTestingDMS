@@ -1,6 +1,10 @@
 Feature: Perizinan Page Test
   #  Halaman Perizinan #
   Scenario: TP001 User Mengunjungi Halaman Perizinan menggunakan Sidebar Menu
+    Given  User Enter Valid Url DMS
+    And User Input Valid Username
+    And User Input Valid Password
+    And User Click Button Login
     When User Klik Menu Perizinan di Sidebar
     Then User Berhasil Menampilkan Halaman Perizinan
 
@@ -310,4 +314,5 @@ Feature: Perizinan Page Test
     When User Pilih Satu Data dan Klik Show Data
     And User Klik Edit
     Then User Berhasil Menampilkan Halaman Edit Data Perizinan
+    And User Click Button Logout
 
