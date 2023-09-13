@@ -10,12 +10,12 @@ import org.testng.Assert;
 
 import static com.juaracoding.drivers.DriverSingleton.delay;
 
-public class TestTemplate {
+public class TestMasterTemplate {
     static WebDriver driver;
     static ExtentTest extentTest;
     static MasterTemplatePage masterTemplatePage = new MasterTemplatePage();
 
-    public TestTemplate() {
+    public TestMasterTemplate() {
         driver = Hooks.driver;
         extentTest = Hooks.extentTest;
     }

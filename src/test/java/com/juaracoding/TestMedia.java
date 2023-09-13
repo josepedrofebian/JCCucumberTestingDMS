@@ -49,7 +49,7 @@ public class TestMedia {
 
     @And("User Input Nama Media")
     public void user_input_nama_media() {
-        masterMediaPage.userInputNama("maskris");
+        masterMediaPage.userInputNama(DriverSingleton.randomString());
         extentTest.log(LogStatus.PASS, "User Input Nama");
     }
     @And("User Click Button Simpan Media")

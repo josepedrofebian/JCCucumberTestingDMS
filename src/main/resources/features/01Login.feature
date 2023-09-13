@@ -42,6 +42,7 @@ Feature: Login Page Test
     And User Input Valid Password
     And User Click Button Login
     Then User Get Text Logo DMS In Home page
+    And User Click Button Logout
 
 
 
