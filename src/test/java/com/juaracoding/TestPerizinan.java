@@ -84,9 +84,9 @@ public class TestPerizinan {
 
     @When("User Memasukkan Keyword di Kolom Pencarian Departemen")
     public void user_input_filter_departemen() {
-        Assert.assertEquals(" ", "IT Programmer"); // baris ini hapus klo udh bener isinya ganti yg bwh
-        //perizinanPage.searchDepartemen();
+        perizinanPage.searchDepartemen();
         System.out.println("drowdown kosong");
+        Assert.assertEquals(" ", "IT Programmer");
         extentTest.log(LogStatus.FAIL, "User Memasukkan Keyword di Kolom Pencarian Departemen");
     }
 
@@ -117,8 +117,20 @@ public class TestPerizinan {
     @When("User Pilih Satu Data dan Klik Show Data")
     public void user_klik_show() {
         DriverSingleton.delay(2);
-        perizinanPage.clickListData(4); //data baris ke-4
+        perizinanPage.clickListData(4);
         extentTest.log(LogStatus.PASS, "User Pilih Satu Data dan Klik Show Data");
+    }
+
+    @When("User Memasukkan Keyword DOCX")
+    public void user_input_filter_no_docx() {
+        perizinanPage.searchNoPerizinanViewDOCX();
+        extentTest.log(LogStatus.PASS, "User Memasukkan Keyword DOCX");
+    }
+
+    @When("User Memasukkan Keyword PDF")
+    public void user_input_filter_no_pdf() {
+        perizinanPage.searchNoPerizinanViewPDF();
+        extentTest.log(LogStatus.PASS, "User Memasukkan Keyword PDF");
     }
 
 
@@ -315,6 +327,13 @@ public class TestPerizinan {
         extentTest.log(LogStatus.PASS, "User Klik View");
     }
 
+    @And("User Pilih Data dan Klik Show Data")
+    public void user_klik_show_data() {
+        DriverSingleton.delay(2);
+        perizinanPage.clickListData(1);
+        extentTest.log(LogStatus.PASS, "User Pilih Data dan Klik Show Data");
+    }
+
     // ============================ THEN =============================== //
     @Then("User Berhasil Menampilkan Halaman Perizinan")
     public void user_get_text_title_perizinan_page() {
@@ -447,7 +466,7 @@ public class TestPerizinan {
 
     @Then("User Cek Jumlah File")
     public void get_jumlah_data_list() {
-        DriverSingleton.delay(1);
+        DriverSingleton.delay(3);
         Assert.assertEquals(perizinanPage.getTxtJumlahDokumen(), perizinanPage.getJumlahDataDiList());
         extentTest.log(LogStatus.PASS, "User Cek Jumlah File");
     }
@@ -466,9 +485,20 @@ public class TestPerizinan {
 
     @Then("User Berhasil Menampilkan Halaman View Data Perizinan")
     public void user_get_text_title_View_Page() {
-        System.out.println(perizinanPage.getTxtViewPerizinan());
         Assert.assertEquals(perizinanPage.getTxtViewPerizinan(), "Data Arsip");
         extentTest.log(LogStatus.PASS, "User Berhasil Menampilkan Halaman View Data Perizinan");
+    }
+
+    @Then("User Verifikasi Unduhan Berhasil")
+    public void verify_download() {
+        Assert.assertTrue(perizinanPage.verifyUnduhan());
+        extentTest.log(LogStatus.FAIL, "Verifikasi Unduhan Berhasil");
+    }
+
+    @Then("User Bisa Melihat File Pdf")
+    public void verify_view_pdf() {
+        Assert.assertEquals(perizinanPage.verifyShowPdf(), "PDF");
+        extentTest.log(LogStatus.FAIL, "User Bisa Melihat File Pdf");
     }
 
     // ============================ AND after THEN =============================== //
@@ -487,18 +517,13 @@ public class TestPerizinan {
     @And("User Mendapatkan Hasil Pencarian yang Sesuai dari Departemen")
     public void get_value_departemen() {
         Assert.assertTrue(perizinanPage.getListNilaiDataPerizinan("Departemen"));
-        extentTest.log(LogStatus.PASS, "User Mendapatkan Hasil Pencarian yang Sesuai dari Departemen");
+        extentTest.log(LogStatus.FAIL, "User Mendapatkan Hasil Pencarian yang Sesuai dari Departemen");
     }
 
-    @And("User Mendapatkan Hasil Pencarian yang Ada File")
+    @And("User Mendapatkan Hasil Pencarian")
     public void get_value_ada_file() {
         Assert.assertTrue(perizinanPage.getListNilaiDataPerizinan("File"));
-        extentTest.log(LogStatus.PASS, "User Mendapatkan Hasil Pencarian yang Ada File");
+        extentTest.log(LogStatus.PASS, "User Mendapatkan Hasil Pencarian");
     }
 
-    @And("User Mendapatkan Hasil Pencarian yang Tidak Ada File")
-    public void get_value_tidak_ada_file() {
-        Assert.assertTrue(perizinanPage.getListNilaiDataPerizinan("File"));
-        extentTest.log(LogStatus.PASS, "User Mendapatkan Hasil Pencarian yang Tidak Ada File");
-    }
 }

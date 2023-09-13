@@ -9,7 +9,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PerizinanPage {
     private WebDriver driver;
@@ -19,7 +23,7 @@ public class PerizinanPage {
         PageFactory.initElements(driver, this);
     }
 
-    // tombol di List Perizinan
+    // Tombol di List Perizinan
     @FindBy(xpath = "//button[normalize-space()='Input Data']")
     WebElement btnInputData;
     @FindBy(xpath = "//button[normalize-space()='Send Selected Email']")
@@ -37,7 +41,7 @@ public class PerizinanPage {
     @FindBy(xpath = "//span[@class='btn btn-xs btn-warning']")
     WebElement btnEdit;
 
-    //Pencarian
+    //Bagian Pencarian
     @FindBy(xpath = "//input[@id='nodokizin']")
     WebElement cariNoPerizinan;
     @FindBy(xpath = "//input[@id='nama']")
@@ -49,7 +53,7 @@ public class PerizinanPage {
     @FindBy(xpath = "//button[@id='btnFilter']")
     WebElement btnFilter;
 
-    //Header
+    //Bagian Header
     @FindBy(xpath = "//span[normalize-space()='Perizinan']")
     WebElement menuPerizinan;
     @FindBy(xpath = "//li[contains(text(),'Perizinan')]")
@@ -96,13 +100,22 @@ public class PerizinanPage {
         return txtDataNoAvailable.getText();
     }
 
-    //Pencarian
+    // ========== Pencarian ========== //
     public void searchNoPerizinan() {
         cariNoPerizinan.sendKeys("Nomor Perizinan");
     }
 
     public void searchNoPerizinanInvalid() {
         cariNoPerizinan.sendKeys("@Ini Contoh!");
+    }
+
+    public void searchNoPerizinanViewDOCX() {
+        cariNoPerizinan.sendKeys("ContohDOCX");
+    }
+
+    public void searchNoPerizinanViewPDF() {
+        cariNoPerizinan.clear();
+        cariNoPerizinan.sendKeys("ContohPDF");
     }
 
     public void searchNamaPerizinan() {
@@ -131,7 +144,7 @@ public class PerizinanPage {
         cariKetersediaan.sendKeys(Keys.ENTER);
     }
 
-    // Table List Perizinan
+    // ========== Table List Perizinan ========== //
     public int getTxtJumlahDokumen() {
         String teksAngka = txtJumlahData.getText();
         int angka = Integer.parseInt(teksAngka);
@@ -187,8 +200,6 @@ public class PerizinanPage {
     }
 
     public void clickListData(int idx) {
-    //public void clickListData(){
-        //int idx = 4;  //
         WebElement kolom = listTableDokumenPerizinan.get(idx).findElements(By.tagName("td")).get(0);
         kolom.click(); //tbody/tr[9]/td[1]
     }
@@ -200,4 +211,47 @@ public class PerizinanPage {
     public void clickView() {
         btnView.click();
     }
+
+    public boolean verifyUnduhan() {
+        boolean value = false;
+        String direktoriUnduh = System.getProperty("user.home") + "\\Downloads";
+        String polaNamaFile1 = "Perizinan3.docx";
+        String polaNamaFile2 = "Perizinan3 \\(\\d+\\)\\.docx";
+
+        DriverSingleton.delay(3);
+
+        File folder = new File(direktoriUnduh);
+        File[] daftarFile = folder.listFiles();
+        Pattern pola1 = Pattern.compile(polaNamaFile1);
+        Pattern pola2 = Pattern.compile(polaNamaFile2);
+
+        for (File file : daftarFile) {
+            String namaFile = file.getName();
+            Matcher matcher1 = pola1.matcher(namaFile);
+            Matcher matcher2 = pola2.matcher(namaFile);
+
+            if (matcher1.matches() || matcher2.matches()) {
+                //System.out.println("File " + namaFile + " telah berhasil diunduh.");
+                value = true;
+                break;
+            } else {
+                value = false;
+            }
+        }
+        return value;
+    }
+
+    public String verifyShowPdf() {
+        ArrayList<String> newTb = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(newTb.get(1));
+        String titleTwo = driver.getTitle();
+
+        //System.out.println("Judul Dua " + titleTwo);
+        DriverSingleton.delay(3);
+
+        driver.close();
+        driver.switchTo().window(newTb.get(0));
+        return titleTwo;
+    }
+
 }

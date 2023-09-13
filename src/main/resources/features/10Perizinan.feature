@@ -1,10 +1,6 @@
 Feature: Perizinan Page Test
   #  Halaman Perizinan #
   Scenario: TP001 User Mengunjungi Halaman Perizinan menggunakan Sidebar Menu
-    Given  User Enter Valid Url DMS
-    And User Input Valid Username
-    And User Input Valid Password
-    And User Click Button Login
     When User Klik Menu Perizinan di Sidebar
     Then User Berhasil Menampilkan Halaman Perizinan
 
@@ -13,32 +9,32 @@ Feature: Perizinan Page Test
     When User Klik Tombol Input Data
     Then User Berhasil Menampilkan Halaman Input Data Perizinan
 
-  # Input Data Perizinan # POSITIF
-#  Scenario: TP003 User Berhasil Menambahkan Data Perizinan
-#    #When User Klik Tombol Input Data
-#    When User Input Nomor Perizinan
-#    And User Input Nama Perizinan
-#    And User Input Tanggal Mulai Perizinan
-#    And User Input Tanggal Berakhir Perizinan
-#    And User Input Diterbitkan Oleh
-#    And User Input Deskripsi
-#    And User Input Pemilik Dokumen
-#    And User Input Dibuat Oleh
-#    And User Input Tim Terkait
-#    And User Input Tanggal Reminder
-#    And User Input Jenis Media
-#    And User Input Jumlah Dokumen
-#    And User Pilih File PDF Dokumen di Explorer
-#    And User Input Share
-#    And User Input Status Dokumen
-#    And User Klik Simpan
-#    Then User Berhasil Menyimpan Data
+   # Input Data Perizinan # POSITIF
+  Scenario: TP003 User Berhasil Menambahkan Data Perizinan
+    #When User Klik Tombol Input Data
+    When User Input Nomor Perizinan
+    And User Input Nama Perizinan
+    And User Input Tanggal Mulai Perizinan
+    And User Input Tanggal Berakhir Perizinan
+    And User Input Diterbitkan Oleh
+    And User Input Deskripsi
+    And User Input Pemilik Dokumen
+    And User Input Dibuat Oleh
+    And User Input Tim Terkait
+    And User Input Tanggal Reminder
+    And User Input Jenis Media
+    And User Input Jumlah Dokumen
+    And User Pilih File PDF Dokumen di Explorer
+    And User Input Share
+    And User Input Status Dokumen
+    And User Klik Simpan
+    Then User Berhasil Menyimpan Data
 
 # Input Data Perizinan # NEGATIF
   Scenario: TP004 User Tidak Memasukkan Data Apapun
-#    When User Klik Tombol Input Data
-#    And User Klik Simpan
-    When User Klik Simpan
+    When User Klik Tombol Input Data
+    And User Klik Simpan
+    #When User Klik Simpan
     Then Menampilkan Alert di Kolom Nomor Dokumen
 
   Scenario: TP005 User Tidak input Nomor Perizinan
@@ -237,25 +233,25 @@ Feature: Perizinan Page Test
     When User Pilih Share Tidak
     Then User Tidak Menampilkan Departemen Akses
 
-#  Scenario: TP022 User Hanya Memasukkan Data Kosong dan Invalid
-#    Given Refresh Halaman
-#    When User Input Invalid Nomor Perizinan
-#    And User Input Invalid Nama Perizinan
-#    And User Input Invalid Tanggal Mulai Perizinan Today
-#    And User Input Invalid Tanggal Berakhir Perizinan Today
-#    And User Input Invalid Diterbitkan Oleh
-#    And User Input Invalid Deskripsi
-#    And User Input Invalid Pemilik Dokumen
-#    And User Input Invalid Dibuat Oleh
-#    And User Input Invalid Tim Terkait
-#    And User Input Invalid Tanggal Reminder Today
-#    And User Input Invalid Jenis Media
-#    And User Klik Simpan
-#    Then Menampilkan Alert Data Tidak Boleh Kosong
+  Scenario: TP022 User Hanya Memasukkan Data Kosong dan Invalid
+    Given Refresh Halaman
+    When User Input Invalid Nomor Perizinan
+    And User Input Invalid Nama Perizinan
+    And User Input Invalid Tanggal Mulai Perizinan Today
+    And User Input Invalid Tanggal Berakhir Perizinan Today
+    And User Input Invalid Diterbitkan Oleh
+    And User Input Invalid Deskripsi
+    And User Input Invalid Pemilik Dokumen
+    And User Input Invalid Dibuat Oleh
+    And User Input Invalid Tim Terkait
+    And User Input Invalid Tanggal Reminder Today
+    And User Input Invalid Jenis Media
+    And User Klik Simpan
+    Then Menampilkan Alert Data Tidak Boleh Kosong
 
   # Pencarian data Perizinan #
   Scenario: TP023 User Mencari berdasarkan Nomor Perizinan
-    Given Kembali ke halaman sebelumnya
+#    Given Kembali ke halaman sebelumnya
     When User Memasukkan Keyword di Kolom Pencarian Nomor Perizinan
     And User Klik Filter
     Then User Cek Jumlah File
@@ -280,14 +276,14 @@ Feature: Perizinan Page Test
     When User Memasukkan Keyword di Kolom Pencarian Ketersediaan File Ada
     And User Klik Filter
     Then User Cek Jumlah File
-    And User Mendapatkan Hasil Pencarian yang Ada File
+    And User Mendapatkan Hasil Pencarian
 
   Scenario: TP027 User Mencari berdasarkan File yang Tidak Ada
     Given Refresh Halaman
     When User Memasukkan Keyword di Kolom Pencarian Ketersediaan File Tidak Ada
     And User Klik Filter
     Then User Cek Jumlah File
-    And User Mendapatkan Hasil Pencarian yang Tidak Ada File
+    And User Mendapatkan Hasil Pencarian
 
   Scenario: TP028 User Mencari berdasarkan Nomor Perizinan Invalid
     Given Refresh Halaman
@@ -309,10 +305,26 @@ Feature: Perizinan Page Test
     And User Klik View
     Then User Berhasil Menampilkan Halaman View Data Perizinan
 
-  Scenario: TP031 User ke Halaman Edit Data
+  Scenario: TP031 User Melihat File DOCX yang sudah Ditambahkan
+    Given Kembali ke halaman sebelumnya
+    When User Memasukkan Keyword DOCX
+    And User Klik Filter
+    And User Pilih Data dan Klik Show Data
+    And User Klik View
+    And User Klik View
+    Then User Verifikasi Unduhan Berhasil
+
+  Scenario: TP032 User Melihat File PDF yang sudah Ditambahkan
+    Given Kembali ke halaman sebelumnya
+    When User Memasukkan Keyword PDF
+    And User Klik Filter
+    And User Pilih Data dan Klik Show Data
+    And User Klik View
+    And User Klik View
+    Then User Bisa Melihat File Pdf
+
+  Scenario: TP033 User ke Halaman Edit Data
     Given Kembali ke halaman sebelumnya
     When User Pilih Satu Data dan Klik Show Data
     And User Klik Edit
     Then User Berhasil Menampilkan Halaman Edit Data Perizinan
-    And User Click Button Logout
-

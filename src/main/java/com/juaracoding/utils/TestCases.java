@@ -96,6 +96,7 @@ public enum TestCases {
     ED003("ED003 User Input Data Eksternal Share Ya Status Aktif"),
     TP001("TP001 User Mengunjungi Halaman Perizinan menggunakan Sidebar Menu"),
     TP002("TP002 User mengunjungi halaman Input Data Perizinan"),
+    TP003("TP003 User Berhasil Menambahkan Data Perizinan"),
     TP004("TP004 User Tidak Memasukkan Data Apapun"),
     TP005("TP005 User Tidak input Nomor Perizinan"),
     TP006("TP006 User Tidak Input Nama Perizinan"),
@@ -114,6 +115,7 @@ public enum TestCases {
     TP019("TP019 User Menambahkan File DOCX"),
     TP020("TP020 User Hanya Memasukkan Data Kosong dan Invalid"),
     TP021("TP021 User Tidak Memilih Share dengan Departemen"),
+    TP022("TP022 User Hanya Memasukkan Data Kosong dan Invalid"),
     TP023("TP023 User Mencari berdasarkan Nomor Perizinan"),
     TP024("TP024 User Mencari berdasarkan Nama Perizinan"),
     TP025("TP025 User Mencari berdasarkan Departemen"),
@@ -122,7 +124,9 @@ public enum TestCases {
     TP028("TP028 User Mencari berdasarkan Nomor Perizinan Invalid"),
     TP029("TP029 User Mencari berdasarkan Nama Perizinan Invalid"),
     TP030("TP030 User ke Halaman View Data"),
-    TP031("TP031 User ke Halaman Edit Data"),
+    TP031("TP031 User Melihat File DOCX yang sudah Ditambahkan"),
+    TP032("TP032 User Melihat File PDF yang sudah Ditambahkan"),
+    TP033("TP033 User ke Halaman Edit Data"),
     TL009("TL009 User Logout");
 
     private String testCaseName;
