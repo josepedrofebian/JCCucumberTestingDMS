@@ -18,6 +18,7 @@ public class MasterLokasiPenyimpananPage {
     WebElement sideBarMasterData;
     @FindBy(xpath = "//a[normalize-space()='Lokasi Penyimpanan']")
     WebElement sideBarLokasiPenyimpanan;
+
     @FindBy(xpath = "//h1[normalize-space()='Data Lokasi Arsip']")
     WebElement txtDataLokasiArsip;
     @FindBy(xpath = "//input[@name='katakunci']")

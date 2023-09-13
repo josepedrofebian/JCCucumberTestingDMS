@@ -60,7 +60,7 @@ public class InternalDokumenPage {
     WebElement uploadFile;
     @FindBy(xpath = "//select[@id='share']")
     WebElement dropDownShareYa;
-    @FindBy(xpath = "//input[@value='aabb898989']")
+    @FindBy(name ="departemen[]")
     WebElement checkBoxShareYa;
     @FindBy(xpath = "//button[@id='singlebutton']")
     WebElement btnSimpan;
